@@ -77,6 +77,17 @@ export default function(api: IApi) {
           extraBabelPlugins,
         };
       });
+
+      api.addRuntimePlugin(() => `@@/${DIR_NAME}/dynamic-use-model`);
+
+      api.onGenerateFiles(() => {
+        api.writeTmpFile({
+          path: `${DIR_NAME}/dynamic-use-model.ts`,
+          content: `
+          import { useModel } from "umi";
+          window.globalThis.useModel = useModel;`,
+        });
+      });
     } else if (qiankun.master) {
       api.addRuntimePlugin(() => `@@/${DIR_NAME}/index`);
 

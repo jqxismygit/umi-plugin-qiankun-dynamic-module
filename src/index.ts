@@ -71,7 +71,7 @@ export default function(api: IApi) {
       api.modifyConfig(memo => {
         const extraBabelPlugins = [
           ['babel-plugin-dynamic-module', { modules }],
-        ];
+        ].concat(memo.extraBabelPlugins as any);
         return {
           ...memo,
           extraBabelPlugins,

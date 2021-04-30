@@ -1,7 +1,7 @@
 {
   "name": "umi-plugin-qiankun-dynamic-module",
   "main": "lib/index.js",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "dynamic module",
   "authors": {
     "name": "king",
@@ -30,9 +30,6 @@
   "dependencies": {
     "lodash": "^4.17.20"
   },
-  "peerDependencies": {
-    "babel-plugin-dynamic-module": "^0.0.4"
-  },
   "devDependencies": {
     "@testing-library/react": "^9.4.0",
     "@testing-library/react-hooks": "^3.2.1",
@@ -56,7 +53,8 @@
     "react-test-renderer": "^16.9.0",
     "test-umi-plugin": "^0.1.0",
     "umi": "^3.1.0",
-    "yorkie": "^2.0.0"
+    "yorkie": "^2.0.0",
+    "babel-plugin-dynamic-module": "^0.0.4"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"

@@ -18,13 +18,16 @@ const buildExportModules = function(rootPath: string, basePrefix: string) {
       .replace(rootPath, '')
       .replace(/\//g, '$')
       .replace(/\-/g, '$')}`;
-    console.log('prefix = ', prefix);
+    // console.log('prefix = ', prefix);
     fs.readdirSync(dir).forEach((file: string) => {
       const pathname = join(dir, file);
       if (fs.statSync(pathname).isDirectory()) {
         traverse(pathname);
       } else {
-        if (/\.(js|ts|jsx|tsx)$/.test(file) && !/\.d.(ts|tsx)$/.test(file)) {
+        if (
+          /\.(js|ts|jsx|tsx)$/.test(file) &&
+          !/\.(d|test).(ts|tsx)$/.test(file)
+        ) {
           const filename = parse(pathname).name.replace(/\-/g, '$');
           if (filename === 'index') {
             modules.push({ name: prefix, path: dirname(pathname) });
@@ -70,7 +73,7 @@ export default function(api: IApi) {
       //@ts-ignore
       api.modifyConfig(memo => {
         const extraBabelPlugins = [
-          ['babel-plugin-dynamic-module', { modules }],
+          [require('babel-plugin-dynamic-module'), { modules }],
         ].concat(memo.extraBabelPlugins as any);
         return {
           ...memo,

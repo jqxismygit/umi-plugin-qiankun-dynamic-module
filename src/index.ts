@@ -88,7 +88,15 @@ export default function(api: IApi) {
           path: `${DIR_NAME}/dynamic-use-model.ts`,
           content: `
           import { useModel } from "umi";
-          window.globalThis.useModel = useModel;`,
+          export const qiankun = {
+            async bootstrap(props) {
+            },
+            async mount(props) {
+              window.globalThis.useModel = useModel;
+            },
+            async unmount(props) {
+            },
+          };`,
         });
       });
     } else if (qiankun.master) {

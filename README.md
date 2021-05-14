@@ -1,38 +1,12 @@
 # umi-plugin-qiankun-dynamic-module
 
-[![NPM version](https://img.shields.io/npm/v/umi-plugin-qiankun-dynamic-module.svg?style=flat)](https://npmjs.org/package/umi-plugin-qiankun-dynamic-module)
-[![NPM downloads](http://img.shields.io/npm/dm/umi-plugin-qiankun-dynamic-module.svg?style=flat)](https://npmjs.org/package/umi-plugin-qiankun-dynamic-module)
+## 支持微前端库模块的动态导入，默认配置@sensoro/core, @sensoro/library, @sensoro/layout
 
-dynamic module
+## 默认是只在生产环境生效，如果强制在开发环境生效，可在.umirc配置
 
-## Install
-
-```bash
-# or yarn
-$ npm install
+```jsx
+  dynamicModule: {
+    forceApply: true,
+  },
 ```
 
-```bash
-$ npm run build --watch
-$ npm run start
-```
-
-## Usage
-
-Configure in `.umirc.js`,
-
-```js
-export default {
-  plugins: [
-    ['umi-plugin-qiankun-dynamic-module'],
-  ],
-}
-```
-
-## Options
-
-TODO
-
-## LICENSE
-
-MIT

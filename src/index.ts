@@ -92,7 +92,7 @@ export default function(api: IApi) {
             async bootstrap(props) {
             },
             async mount(props) {
-              window.globalThis.useModel = useModel;
+              window.useModel = useModel;
             },
             async unmount(props) {
             },

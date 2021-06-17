@@ -93,6 +93,7 @@ export default function(api: IApi) {
             },
             async mount(props) {
               window.useModel = useModel;
+              window.globalThis.useModel = useModel;
             },
             async unmount(props) {
             },

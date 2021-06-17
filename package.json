@@ -1,7 +1,7 @@
 {
   "name": "umi-plugin-qiankun-dynamic-module",
   "main": "lib/index.js",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "dynamic module",
   "authors": {
     "name": "king",
